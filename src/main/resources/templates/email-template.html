@@ -1,0 +1,76 @@
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .email-header {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+        .email-body {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .email-footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #888888;
+        }
+        .employee-details {
+            margin-top: 15px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .employee-details p {
+            margin: 5px 0;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <div class="email-header">
+        <h2>Welcome to the Company, [[${firstName}]] [[${lastName}]]</h2>
+    </div>
+    <div class="email-body">
+        <p>Dear [[${firstName}]] [[${lastName}]],</p>
+        <p>We are happy to welcome you to the company. Your employee details are as follows:</p>
+
+        <div class="employee-details">
+            <p><span class="highlight">Name:</span> [[${firstName}]] [[${lastName}]]</p>
+            <p><span class="highlight">Email:</span> [[${email}]]</p>
+            <p><span class="highlight">Department:</span> [[${department}]]</p>
+            <p><span class="highlight">Salary:</span> [[${salary}]]</p>
+        </div>
+
+        <p>If you have any questions, feel free to reach out to us.</p>
+    </div>
+    <div class="email-footer">
+        <p>Best Regards,</p>
+        <p>The Company</p>
+    </div>
+</div>
+</body>
+</html>
