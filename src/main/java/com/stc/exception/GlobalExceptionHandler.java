@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -35,6 +36,13 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse("VALIDATION_ERROR", ex.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidInputException(MethodArgumentNotValidException ex) {
+        logger.error("Validation Error: {}", ex.getMessage(), ex);
+
+        ErrorResponse errorResponse = new ErrorResponse("VALIDATION_ERROR", ex.getMessage());
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
 
     @ExceptionHandler(ExternalServiceException.class)
     public ResponseEntity<ErrorResponse> handleExternalServiceException(ExternalServiceException ex) {
@@ -42,7 +50,6 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse("EXTERNAL_SERVICE_ERROR", ex.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_GATEWAY);
     }
-
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGeneralException(Exception ex) {
