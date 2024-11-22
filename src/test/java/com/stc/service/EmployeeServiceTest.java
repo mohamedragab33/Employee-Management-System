@@ -54,7 +54,7 @@ class EmployeeServiceTest {
         employeeId = UUID.randomUUID();
         employeeReq = new EmployeeReq("Mo", "Elkazzaz", "Mo.Elkazzaz@example.com", "IT", 5000);
         employee = new Employee(employeeId, "Mo", "Elkazzaz", "Mo.Elkazzaz@example.com", "IT", 5000);
-        employeeRes = new EmployeeRes("Mo", "Elkazzaz", "Mo.Elkazzaz@example.com", "IT", 5000);
+        employeeRes = new EmployeeRes(employeeId,"Mo", "Elkazzaz", "Mo.Elkazzaz@example.com", "IT", 5000);
     }
 
     @Test

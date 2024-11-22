@@ -6,16 +6,18 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "employees")
-public class Employee {
-    @Id
-    @GeneratedValue(generator = "UUID" ,strategy = GenerationType.AUTO)
+public class Employee {@GeneratedValue
+@Id
+@Column(updatable = false, nullable = false)
     private UUID id;
 
     @NotBlank(message = "First name is required")

@@ -12,6 +12,7 @@ public interface EmployeeMapper {
 
     EmployeeMapper INSTANCE = Mappers.getMapper(EmployeeMapper.class);
 
+    @Mapping(target = "id", source = "id")
     EmployeeRes toEmployeeRes(Employee employee);
 
     @Mapping(target = "id", ignore = true)

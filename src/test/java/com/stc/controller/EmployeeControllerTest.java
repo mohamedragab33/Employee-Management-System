@@ -92,7 +92,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
     void updateEmployee_shouldReturnUpdatedEmployee() throws Exception {
         UUID id = UUID.randomUUID();
         EmployeeReq updatedReq = new EmployeeReq("Jane", "Doe", "jane.doe@example.com", "HR", 6000);
-        EmployeeRes updatedRes = new EmployeeRes("Jane", "Doe", "jane.doe@example.com", "HR", 6000);
+        EmployeeRes updatedRes = new EmployeeRes(id,"Jane", "Doe", "jane.doe@example.com", "HR", 6000);
 
         Mockito.when(employeeService.updateEmployee(eq(id), any(EmployeeReq.class))).thenReturn(updatedRes);
 
