@@ -13,7 +13,10 @@ This is a Spring Boot-based application for managing employees within an organiz
 - **Retry Mechanisms**: Retries email sending in case of failure.
 - **Logging**: Detailed logs for every operation.
 - **Asynchronous Processing**: Email notifications are sent asynchronously.
-
+- **API Documentation with Swagger**: This project integrates Swagger for API documentation and testing.
+Accessing Swagger UI
+Once the application is running, you can view the Swagger UI at:
+http://localhost:8080/swagger-ui/index.html
 ---
 
 ## Technologies Used
@@ -26,6 +29,8 @@ This is a Spring Boot-based application for managing employees within an organiz
 - **Lombok**: To reduce boilerplate code.
 - **JavaMailSender**: For sending emails.
 - **Validation APIs**: Integration with [ZeroBounce](https://www.zerobounce.net) for email validation.
+- **VAPI Documentation with Swagger**: Once the application is running, you can view the Swagger UI at:
+(http://localhost:8080/swagger-ui/index.html).
 
 ---
 
@@ -36,11 +41,3 @@ This is a Spring Boot-based application for managing employees within an organiz
 - **MySQL Database**
 - An API key from ZeroBounce for email validation
 
----
-
-## Setup and Installation
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/your-repo/employee-management-system.git
-cd employee-management-system
