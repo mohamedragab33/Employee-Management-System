@@ -38,7 +38,6 @@ public class EmployeeService {
         // Send Email Notification
         emailService.sendEmployeeCreationNotification(employee);
 
-        // Map Entity to Response
         return employeeMapper.toEmployeeRes(employee);
     }
 
@@ -66,14 +65,12 @@ public class EmployeeService {
         Employee employee = employeeRepository.findById(id)
                 .orElseThrow(() -> new EmployeeNotFoundException(EMPLOYEE_NOT_FOUND_WITH_ID + id));
 
-        // Update fields
         employee.setFirstName(employeeReq.firstName());
         employee.setLastName(employeeReq.lastName());
         employee.setEmail(employeeReq.email());
         employee.setDepartment(employeeReq.department());
         employee.setSalary(employeeReq.salary());
 
-        // Save updated employee
         employee = employeeRepository.save(employee);
         return employeeMapper.toEmployeeRes(employee);
     }
