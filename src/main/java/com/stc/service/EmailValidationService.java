@@ -1,6 +1,5 @@
 package com.stc.service;
 
-import com.stc.config.AppConfig;
 import com.stc.dto.EmailValidationResponse;
 import com.stc.exception.ExternalServiceException;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 public class EmailValidationService {
 
     private static final String API_URL = "https://api.zerobounce.net/v2/validate?api_key=%s&email=%s";
-    private final AppConfig appConfig;
     @Value("${email.validation.api.key}")
     private String apiKey;
     private final RestTemplate restTemplate;
@@ -33,7 +31,7 @@ public class EmailValidationService {
                     throw new ExternalServiceException("Email validation failed after retries", e);
                 }
                 try {
-                    TimeUnit.SECONDS.sleep((long) Math.pow(2, 3 - attempts)); // Exponential backoff
+                    TimeUnit.SECONDS.sleep((long) Math.pow(2, 3 - attempts));
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                 }
