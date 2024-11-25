@@ -38,6 +38,5 @@ http://localhost:8080/swagger-ui/index.html
 
 - **Java 17** or higher
 - **Maven 3.2** or higher
-- **MySQL Database**
 - An API key from ZeroBounce for email validation
 
